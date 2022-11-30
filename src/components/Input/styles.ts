@@ -19,7 +19,9 @@ export const Container = styled.div`
 
         border: none;
     }
+
     img {
         margin-bottom: 6px;
+        cursor: pointer;
     }
 `

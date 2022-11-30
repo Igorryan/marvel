@@ -30,7 +30,9 @@ export function Header() {
                 <S.BottomOptions>
                     <Input></Input>
                     <img src={DividerIcon} alt="Divider Icon"></img>
-                    <img src={ShoppingIcon} alt="Shopping Icon"></img>
+                    <button>
+                        <img src={ShoppingIcon} alt="Shopping Icon"></img>
+                    </button>
                 </S.BottomOptions>
             </S.OptionsContainer>
         </S.Container>

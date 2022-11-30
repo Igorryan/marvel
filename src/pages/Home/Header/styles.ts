@@ -7,7 +7,7 @@ export const Container = styled.header`
     margin: 0 auto;
 
     max-width: 1200px;
-    height: 124px;
+    height: 104px;
 `
 
 export const LogoContainer = styled.div`
