@@ -39,6 +39,7 @@ export const NavList = styled.ul`
 
     h4 {
         font-weight: 700;
+        font-size: 18px;
         color: #CFCFCF;
         cursor: pointer;
     }
