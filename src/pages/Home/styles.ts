@@ -32,7 +32,7 @@ export const Banner = styled.div`
     p {
         margin: 4px 0 24px;
 
-        font-size: 18px;
+        font-size: 19px;
 
         text-align: center;
         text-transform: uppercase;

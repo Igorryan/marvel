@@ -3,6 +3,7 @@ import { Header } from './Header';
 import { Navbar } from './Navbar';
 import { Gallery } from './Gallery';
 import { Button } from '../../components/Button';
+import { Filterbar } from './Filterbar';
 
 export function Home() {
     return (
@@ -17,8 +18,9 @@ export function Home() {
                 <S.ButtonContainer>
                     <Button>READ UP</Button>
                 </S.ButtonContainer>
-
             </S.Banner>
+
+            <Filterbar/>
 
         </S.Container>
     )
