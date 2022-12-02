@@ -1,16 +1,19 @@
 import * as S from './styles'
 import { Header } from './Header';
 import { Navbar } from './Navbar';
-import { Gallery } from './Gallery';
+import { Carousel } from './Carousel';
 import { Button } from '../../components/Button';
 import { Filterbar } from './Filterbar';
+import { Gallery } from './Gallery';
+import { Footer } from './Footer';
 
 export function Home() {
     return (
         <S.Container>
             <Header />
             <Navbar />
-            <Gallery />
+            <Carousel />
+
             <S.Banner>
                 <h1>The hunt for wolverine kicks off this april</h1>
                 <p>Charles Soule and David Marquez unravel the mystery</p>
@@ -20,8 +23,14 @@ export function Home() {
                 </S.ButtonContainer>
             </S.Banner>
 
-            <Filterbar/>
+            <Filterbar />
+            <Gallery />
 
+            <S.ButtomEndContainer>
+                <Button>LOAD MORE</Button>
+            </S.ButtomEndContainer>
+
+            <Footer />
         </S.Container>
     )
 }

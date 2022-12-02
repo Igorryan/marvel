@@ -10,6 +10,7 @@ export const Container = styled.nav`
     height: 70px;
 
     background: #EBEBEB;
+    margin-bottom: 50px;
 
     ul{
         list-style: none;
