@@ -45,20 +45,19 @@ export function Gallery() {
     useMemo(() => {
         setInterval(() => {
             handleNextImage()
-        }, 5000)
+        }, 7000)
     }, [])
 
     return (
         <S.Container>
             <S.Carousel>
-
                 <S.Previous onClick={handlePreviousImage}>
                     <img src={PreviousIcon} alt="Previous Button" />
                 </S.Previous>
 
                 <S.ImagesContainer ref={imagesContainerRef}>
                     {images.map(img => (
-                        <S.Image src={img.url} alt={img.description}></S.Image>
+                        <S.Image key={img.url} src={img.url} alt={img.description}></S.Image>
                     ))}
                 </S.ImagesContainer>
 
@@ -68,7 +67,7 @@ export function Gallery() {
 
                 <S.OptionIndexImageContainer>
                     {images.map((img, i) => (
-                        <S.Index onClick={() => setCurrentImage(i)} currentImage={currentImage === i}>{i + 1}</S.Index>
+                        <S.Index key={i} onClick={() => setCurrentImage(i)} currentImage={currentImage === i}>{i + 1}</S.Index>
                     ))}
                 </S.OptionIndexImageContainer>
             </S.Carousel>
