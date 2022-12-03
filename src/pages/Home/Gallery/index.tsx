@@ -74,7 +74,7 @@ export function Gallery() {
             ))}
 
             <S.ButtomEndContainer>
-                <Button loading={loadMoreLoading} onClick={() => getComics({ offset: comics.length })}>LOAD MORE</Button>
+                <Button loading={loadMoreLoading} disabled={loadMoreLoading} onClick={() => getComics({ offset: comics.length })}>LOAD MORE</Button>
             </S.ButtomEndContainer>
         </S.Container>
     );

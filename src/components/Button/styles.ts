@@ -16,7 +16,7 @@ export const Container = styled.button`
     padding: 14px 28px;
 
     transform: skewX(-8deg);
-    transition: .7s ease;
+    transition: .2s ease;
 
     font-size: 16px;
     font-weight: bold;
@@ -34,6 +34,10 @@ export const Container = styled.button`
         &::before {
             opacity: 1;
         }
+    }
+
+    :disabled {
+        background-color: #151515;
     }
 `
 
