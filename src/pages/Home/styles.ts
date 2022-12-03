@@ -58,28 +58,3 @@ export const ButtonContainer = styled.div`
         z-index: -1;
     }
 `
-
-export const ButtomEndContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: -30px auto 50px;
-
-    position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-
-        width: 100%;
-        max-width: 1200px;
-        height: 1px;
-
-        left: 0;
-
-        background: #000000;
-
-        z-index: -1;
-    }
-`

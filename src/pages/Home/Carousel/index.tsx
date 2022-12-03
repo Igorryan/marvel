@@ -1,28 +1,24 @@
 import * as S from './styles'
 import PreviousIcon from '../../../assets/previous.svg'
 import NextIcon from '../../../assets/next.svg'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import Cover from '../../../assets/cover.png'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const images = [
     {
-        url: 'https://scontent-gig2-1.xx.fbcdn.net/v/t31.18172-8/27624860_1568363376575952_2151740536442084432_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHVKGMiP28rJTX3P-D52m5-9_1722DV_R73_XvbYNX9HmtU1kFoC1pOHH_QISxHgnNP74SkqTDsNaN4VSZnWEdI&_nc_ohc=JzF_puJC60IAX_E0bCn&_nc_ht=scontent-gig2-1.xx&oh=00_AfDjyRLR8X_p_FTvaDu_IMBib1cdE8XYLTLg1IPvU2Ovug&oe=63AEF55F',
-        description: 'Batman'
+        url: Cover,
     },
     {
-        url: 'http://st.gde-fon.com/wallpapers_original/339023_komiks_chelovek-pauk_super-geroj_2560x1985_www.Gde-Fon.com.jpg',
-        description: 'Batman'
+        url: 'https://i.annihil.us/u/prod/marvel/i/mg/3/00/6385a4dc01192.jpg',
     },
     {
-        url: 'http://farm2.static.flickr.com/1073/1464777562_afa7739532_o.jpg',
-        description: 'Batman'
+        url: 'https://www.torredevigilancia.com/wp-content/uploads/2017/07/Doctor_Strange_Last_Days_of_Magic_Vol_1_1_Brase_Variant.jpg',
     },
     {
-        url: 'https://images2.alphacoders.com/522/522619.jpg',
-        description: 'Batman'
+        url: 'https://c4.wallpaperflare.com/wallpaper/670/235/603/deadpool-marvel-comics-wallpaper-preview.jpg',
     },
     {
-        url: 'https://p4.wallpaperbetter.com/wallpaper/157/270/428/comics-flash-dc-comics-wallpaper-preview.jpg',
-        description: 'Batman'
+        url: 'https://lh3.googleusercontent.com/-1Xs0iaDgCno/YbZGO2-90tI/AAAAAAAAU6w/db_r6nrJkDsa2hEm6jAcCQuPniC_6hluwCNcBGAsYHQ/s1600/1639335439442044-0.png',
     },
 ]
 
@@ -36,17 +32,17 @@ export function Carousel() {
 
     const handleNextImage = useCallback(() => {
         setCurrentImage(oldState => oldState === (images.length - 1) ? 0 : oldState + 1)
-    }, [images.length, currentImage])
+    }, [])
 
     const handlePreviousImage = useCallback(() => {
         setCurrentImage(oldState => oldState === 0 ? images.length - 1 : oldState - 1)
-    }, [images.length, currentImage])
-
-    useMemo(() => {
-        setInterval(() => {
-            handleNextImage()
-        }, 7000)
     }, [])
+
+    // useMemo(() => {
+    //     setInterval(() => {
+    //         handleNextImage()
+    //     }, 7000)
+    // }, [])
 
     return (
         <S.Container>
@@ -57,7 +53,7 @@ export function Carousel() {
 
                 <S.ImagesContainer ref={imagesContainerRef}>
                     {images.map(img => (
-                        <S.Image key={img.url} src={img.url} alt={img.description}></S.Image>
+                        <S.Image key={img.url} src={img.url} alt="Cover"></S.Image>
                     ))}
                 </S.ImagesContainer>
 

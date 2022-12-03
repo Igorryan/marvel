@@ -1,8 +1,6 @@
 import * as S from './styles'
 import Logo from '../../../assets/logo.svg'
-import FacebookIcon from '../../../assets/facebook.svg'
-import YoutubeIcon from '../../../assets/youtube.svg'
-import TwitterIcon from '../../../assets/twitter.svg'
+import { SocialNetwork } from '../SocialNetwork'
 
 const columnsInformations = [
     {
@@ -91,14 +89,10 @@ export function Footer() {
                     <S.Logo src={Logo} />
                     <S.LinksContainer>
                         {footerInformations.map(link => (
-                            <li>{link}</li>
+                            <li key={link}>{link}</li>
                         ))}
                     </S.LinksContainer>
-                    <S.SocialNetworkingContainer>
-                        <img src={FacebookIcon} alt="Facebook Icon"></img>
-                        <img src={YoutubeIcon} alt="Youtube Icon"></img>
-                        <img src={TwitterIcon} alt="Twitter Icon"></img>
-                    </S.SocialNetworkingContainer>
+                    <SocialNetwork/>
                 </S.Footer>
             </S.Content>
         </S.Container>

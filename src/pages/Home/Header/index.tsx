@@ -1,11 +1,10 @@
 import * as S from './styles'
 import Logo from '../../../assets/logo.svg'
-import FacebookIcon from '../../../assets/facebook.svg'
-import YoutubeIcon from '../../../assets/youtube.svg'
-import TwitterIcon from '../../../assets/twitter.svg'
+
 import ShoppingIcon from '../../../assets/shopping.svg'
 import DividerIcon from '../../../assets/divider.svg'
 import { Input } from '../../../components/Input'
+import { SocialNetwork } from '../SocialNetwork'
 
 export function Header() {
     return (
@@ -13,18 +12,14 @@ export function Header() {
             <S.LogoContainer>
                 <S.Logo src={Logo} alt="Marvel Logo" />
 
-                <S.SocialNetworkingContainer>
-                    <img src={FacebookIcon} alt="Facebook Icon"></img>
-                    <img src={YoutubeIcon} alt="Youtube Icon"></img>
-                    <img src={TwitterIcon} alt="Twitter Icon"></img>
-                </S.SocialNetworkingContainer>
+                <SocialNetwork style={{paddingBottom: '12px'}} />
             </S.LogoContainer>
 
             <S.OptionsContainer>
                 <S.TopOptions>
-                    <a href="#">Welcome</a>
+                    <a href="#welcome">Welcome</a>
                     <img src={DividerIcon} alt="Divider Icon"></img>
-                    <a href="#">My Account</a>
+                    <a href="#account">My Account</a>
                 </S.TopOptions>
 
                 <S.BottomOptions>

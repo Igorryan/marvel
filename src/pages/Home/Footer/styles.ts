@@ -32,6 +32,7 @@ export const Column = styled.ul`
     li {
         font-size: 14px;
         margin-bottom: 8px;
+        cursor: pointer;
     }
 `
 
@@ -55,16 +56,4 @@ export const LinksContainer = styled.ul`
     li {
         cursor: pointer;
     }
-`
-
-export const SocialNetworkingContainer = styled.div`
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-
-    width: 160px;
-    height: 100%;
-
-    margin-left: 14px;
-    padding-bottom: 12px;
 `

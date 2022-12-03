@@ -26,10 +26,6 @@ export function Home() {
             <Filterbar />
             <Gallery />
 
-            <S.ButtomEndContainer>
-                <Button>LOAD MORE</Button>
-            </S.ButtomEndContainer>
-
             <Footer />
         </S.Container>
     )

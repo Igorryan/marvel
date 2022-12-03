@@ -16,7 +16,7 @@ const navItems = [
 ]
 
 export function Navbar() {
-    const [itemSelected, setItemSelected] = useState<number>(-1)
+    const [itemSelected, setItemSelected] = useState<number>(0)
 
     return (
         <S.Container>
