@@ -2,10 +2,7 @@ import * as S from './styles'
 import { InputHTMLAttributes } from 'react';
 import SearchIcon from '../../assets/search.svg'
 
-interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
-}
-
-export function Input({...props}: IInputProps) {
+export function Input({...props}: InputHTMLAttributes<HTMLInputElement>) {
     return (
         <S.Container {...props}>
             <input placeholder='SEARCH MARVEL SHOP' type="text" />

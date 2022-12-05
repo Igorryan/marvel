@@ -5,7 +5,7 @@ import ShoppingIcon from '../../../assets/shopping.svg'
 import DividerIcon from '../../../assets/divider.svg'
 import { Input } from '../../../components/Input'
 import { SocialNetwork } from '../SocialNetwork'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { IComic } from '../../../types/ComicType'
 import { getResumeCreatorsByComics } from '../../../functions/getResumeCreatorsByComics'
 import { debounce } from '../../../functions/debounce'
@@ -16,6 +16,8 @@ export function Header() {
     const [comics, setComics] = useState<IComic[]>([])
     const [searching, setSearching] = useState(false)
     const processChange = debounce((value: string) => handleSearch(value), 1000);
+    const wrapperRef = useRef(null);
+    useOutside(wrapperRef);
 
     const handleInputChange = useCallback((value: string) => {
         if (!value) {
@@ -45,6 +47,21 @@ export function Header() {
         setSearching(false)
     }, [])
 
+    function useOutside(ref: any) {
+        useEffect(() => {
+            function handleClickOutside(event: any) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setComics([])
+                }
+            }
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
+
     return (
         <S.Container>
             <S.LogoContainer>
@@ -61,14 +78,14 @@ export function Header() {
                 </S.TopOptions>
 
                 <S.BottomOptions>
-                    <Input onChange={(e) => handleInputChange(e.target.value)}></Input>
+                    <Input onFocus={(e) => handleInputChange(e.target.value)} onChange={(e) => handleInputChange(e.target.value)}></Input>
                     <img src={DividerIcon} alt="Divider Icon"></img>
                     <button>
                         <img src={ShoppingIcon} alt="Shopping Icon"></img>
                     </button>
                 </S.BottomOptions>
 
-                <S.SearchResultsContainer>
+                <S.SearchResultsContainer ref={wrapperRef}>
                     {searching ? (
                         <S.SearchingAlert><Spinner color="red"></Spinner></S.SearchingAlert>
                     ) : (
