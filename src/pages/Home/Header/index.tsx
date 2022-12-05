@@ -5,14 +5,52 @@ import ShoppingIcon from '../../../assets/shopping.svg'
 import DividerIcon from '../../../assets/divider.svg'
 import { Input } from '../../../components/Input'
 import { SocialNetwork } from '../SocialNetwork'
+import { useCallback, useState } from 'react'
+import { IComic } from '../../../types/ComicType'
+import { getResumeCreatorsByComics } from '../../../functions/getResumeCreatorsByComics'
+import { debounce } from '../../../functions/debounce'
+import api from '../../../services/api'
+import { Spinner } from '../../../components/Spinner'
 
 export function Header() {
+    const [comics, setComics] = useState<IComic[]>([])
+    const [searching, setSearching] = useState(false)
+    const processChange = debounce((value: string) => handleSearch(value), 1000);
+
+    const handleInputChange = useCallback((value: string) => {
+        if (!value) {
+            setComics([])
+            setSearching(false)
+        }
+
+        processChange(value)
+    }, [processChange])
+
+    const handleSearch = useCallback(async (value: string) => {
+        setSearching(true)
+
+        if (!value) {
+            setSearching(false)
+            return
+        }
+
+        const titleStartsWith = value.replaceAll(' ', '%20')
+
+        const response = await api.get(`comics?limit=100&titleStartsWith=${titleStartsWith}&orderBy=focDate&apikey=6035b9c71b11ed3af07be7e694b9e4e5`)
+        const data: IComic[] = response.data.data.results
+
+        const comicsWithResumeCreators = getResumeCreatorsByComics(data)
+
+        setComics(comicsWithResumeCreators)
+        setSearching(false)
+    }, [])
+
     return (
         <S.Container>
             <S.LogoContainer>
                 <S.Logo src={Logo} alt="Marvel Logo" />
 
-                <SocialNetwork style={{paddingBottom: '12px'}} />
+                <SocialNetwork style={{ paddingBottom: '12px' }} />
             </S.LogoContainer>
 
             <S.OptionsContainer>
@@ -23,13 +61,31 @@ export function Header() {
                 </S.TopOptions>
 
                 <S.BottomOptions>
-                    <Input></Input>
+                    <Input onChange={(e) => handleInputChange(e.target.value)}></Input>
                     <img src={DividerIcon} alt="Divider Icon"></img>
                     <button>
                         <img src={ShoppingIcon} alt="Shopping Icon"></img>
                     </button>
                 </S.BottomOptions>
+
+                <S.SearchResultsContainer>
+                    {searching ? (
+                        <S.SearchingAlert><Spinner color="red"></Spinner></S.SearchingAlert>
+                    ) : (
+                        comics.length > 0 && comics.map((comic, i) => (
+                            <S.Item key={`i-${comic.id}`}>
+                                <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt="Comic" />
+                                <div>
+                                    <h4>{comic.title}</h4>
+                                    <h6>{comic.resumeCreators}</h6>
+                                </div>
+                            </S.Item>
+                        ))
+                    )}
+                </S.SearchResultsContainer>
             </S.OptionsContainer>
+
+
         </S.Container>
     );
 }

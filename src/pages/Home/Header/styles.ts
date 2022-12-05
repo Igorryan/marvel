@@ -34,6 +34,7 @@ export const OptionsContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 `
 
 export const TopOptions = styled.div`
@@ -65,4 +66,76 @@ export const BottomOptions = styled.div`
     gap: 24px;
 
     margin-bottom: 10px;
+`
+
+export const SearchResultsContainer = styled.ul`
+    list-style: none;
+
+    width: 380px;
+    max-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    right: 5px;
+    top: 100px;
+
+    background-color: #fff;
+    z-index: 2;
+    
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+
+    border-radius: 8px;
+
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #151515;
+        border-radius: 50px;
+        border: 4px solid #fff; 
+    }
+
+`
+
+export const Item = styled.li`
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    padding: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    img {
+        min-width: 30px;
+        min-height: 40px;
+        max-width: 30px;
+        max-height: 40px;
+
+        margin-right: 10px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+        object-fit: cover;
+    }
+
+    h4 {
+        margin-bottom: 4px;
+    }
+`
+
+export const SearchingAlert = styled.div`
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0;
 `
