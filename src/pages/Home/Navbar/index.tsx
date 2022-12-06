@@ -1,6 +1,7 @@
-import * as S from './styles'
-import DividerIcon from '../../../assets/divider.svg'
 import { useState } from 'react';
+import * as S from './styles'
+
+import DividerIcon from '../../../assets/divider.svg'
 
 const navItems = [
     'New!',

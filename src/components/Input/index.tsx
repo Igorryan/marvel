@@ -1,5 +1,5 @@
-import * as S from './styles'
 import { InputHTMLAttributes } from 'react';
+import * as S from './styles'
 import SearchIcon from '../../assets/search.svg'
 
 export function Input({...props}: InputHTMLAttributes<HTMLInputElement>) {

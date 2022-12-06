@@ -7,9 +7,9 @@ export interface IProps {
 export function Spinner({color}: IProps) {
     return (
         <S.Container color={color}>
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </S.Container>
     );
 }

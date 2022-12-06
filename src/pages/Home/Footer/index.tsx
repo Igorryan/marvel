@@ -1,6 +1,7 @@
 import * as S from './styles'
-import Logo from '../../../assets/logo.svg'
 import { SocialNetwork } from '../SocialNetwork'
+
+import Logo from '../../../assets/logo.svg'
 
 const columnsInformations = [
     {

@@ -39,6 +39,7 @@ export const Column = styled.ul`
 export const Footer = styled.footer`
     display: flex;
     justify-content: space-between;
+    
     padding: 20px 0;
 `
 
@@ -51,6 +52,7 @@ export const LinksContainer = styled.ul`
     align-items: center;
     justify-content: space-around;
     list-style: none;
+
     width: 100%;
 
     li {

@@ -1,16 +1,19 @@
-import * as S from './styles'
-import Logo from '../../../assets/logo.svg'
-
-import ShoppingIcon from '../../../assets/shopping.svg'
-import DividerIcon from '../../../assets/divider.svg'
-import { Input } from '../../../components/Input'
-import { SocialNetwork } from '../SocialNetwork'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { IComic } from '../../../types/ComicType'
+import * as S from './styles'
+
+import api from '../../../services/api'
 import { getResumeCreatorsByComics } from '../../../functions/getResumeCreatorsByComics'
 import { debounce } from '../../../functions/debounce'
-import api from '../../../services/api'
+import { IComic } from '../../../types/ComicType'
+
+import Logo from '../../../assets/logo.svg'
+import ShoppingIcon from '../../../assets/shopping.svg'
+import DividerIcon from '../../../assets/divider.svg'
+
+import { Input } from '../../../components/Input'
 import { Spinner } from '../../../components/Spinner'
+
+import { SocialNetwork } from '../SocialNetwork'
 
 export function Header() {
     const [comics, setComics] = useState<IComic[]>([])

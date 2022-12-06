@@ -1,9 +1,12 @@
-import * as S from './styles'
 import { useCallback, useMemo, useState } from 'react';
+import * as S from './styles'
+
 import api from '../../../services/api';
-import { Button } from '../../../components/Button';
 import { getResumeCreatorsByComics } from '../../../functions/getResumeCreatorsByComics';
+
 import { IComic } from '../../../types/ComicType';
+
+import { Button } from '../../../components/Button';
 
 export function Gallery() {
     const [comics, setComics] = useState<IComic[]>([])

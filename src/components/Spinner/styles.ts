@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { IProps } from ".";
 
-const skBounce = keyframes`
+const BounceAnimation = keyframes`
     0%, 80%, 100% { 
       -webkit-transform: scale(0);
       transform: scale(0);
@@ -23,18 +23,18 @@ export const Container = styled.div<IProps>`
 
     border-radius: 100%;
     display: inline-block;
-    -webkit-animation: ${skBounce} 1.4s infinite ease-in-out both;
-    animation: ${skBounce} 1.4s infinite ease-in-out both;
-    }
+    -webkit-animation: ${BounceAnimation} 1.4s infinite ease-in-out both;
+    animation: ${BounceAnimation} 1.4s infinite ease-in-out both;
 
-    .bounce1 {
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
-    }
+     &:first-of-type {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+     }
 
-    .bounce2 {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
+     &:nth-of-type(2) {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+     }
     }
 
     ${props => props.color && css`
